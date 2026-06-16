@@ -1,0 +1,28 @@
+# 금융 지수 알람 조건 설정
+# 코드 수정 없이 이 파일만 편집하여 임계값을 변경할 수 있습니다.
+
+indicators:
+  sp500:
+    enabled: true
+    # 52주 고점 대비 낙폭(%) — 음수값: -10이면 10% 하락
+    condition: drop_from_high
+    threshold: -10.0
+    cooldown_hours: 24
+
+  vix:
+    enabled: true
+    # VIX 지수가 이 값 이상이면 알람
+    condition: above
+    threshold: 25.0
+    cooldown_hours: 6
+
+  fear_greed:
+    enabled: true
+    # Fear & Greed Index가 이 값 이하이면 알람 (0~100)
+    condition: below
+    threshold: 25.0
+    cooldown_hours: 12
+
+schedule:
+  # 폴링 간격 (분)
+  interval_minutes: 30
